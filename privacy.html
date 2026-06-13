@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー — りけいのタネ 投稿ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F3EE;
+    --surface: #FDFCF9;
+    --ink: #1C1B18;
+    --ink-muted: #6B6860;
+    --accent: #1A6B5A;
+    --accent-light: #E8F4F1;
+    --rule: #D8D4CC;
+    --mono: 'Courier Prime', monospace;
+    --serif: 'Noto Serif JP', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-weight: 300;
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+
+  /* ── grain overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── header ── */
+  header {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 48px;
+  }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 48px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── intro card ── */
+  .intro-card {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.8;
+  }
+
+  /* ── sections ── */
+  section {
+    margin-bottom: 44px;
+  }
+
+  h2 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  h2 .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  p {
+    font-size: 14.5px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 8px;
+  }
+
+  ul li {
+    font-size: 14.5px;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  ul li:last-child { border-bottom: none; }
+
+  ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* ── contact ── */
+  .contact-block {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-block .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .contact-block p {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .contact-block a {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  .contact-block a:hover { text-decoration: underline; }
+
+  /* ── footer nav ── */
+  .page-nav {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-nav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid var(--rule);
+    transition: all 0.2s;
+  }
+
+  .page-nav a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="label">Legal Document</div>
+    <h1>プライバシーポリシー</h1>
+    <p class="meta">りけいのタネ 投稿ツール&nbsp;&nbsp;·&nbsp;&nbsp;最終更新: 2026-06-13</p>
+  </header>
+
+  <div class="intro-card">
+    本ツールは、チャンネル「りけいのタネ」運営者本人が自作動画を自身のアカウントへアップロードするための<strong>個人用ツール</strong>です。第三者への提供・販売は一切行いません。
+  </div>
+
+  <section>
+    <h2><span class="num">01</span>取得・利用する情報</h2>
+    <ul>
+      <li>TikTok / Google の OAuth で発行されるアクセストークン・リフレッシュトークン。動画アップロードのためにのみ使用します。</li>
+      <li>これらのトークンは利用者本人のPC内（config/credentials/）にのみ保存され、第三者に送信・共有しません。</li>
+      <li>アップロードする動画ファイル以外の個人データは収集しません。</li>
+      <li>アクセス解析・広告・追跡は行いません。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>第三者提供</h2>
+    <p>取得した情報を第三者へ提供・販売しません。動画とメタデータは利用者本人のアカウントへ各プラットフォームのAPI経由で送信されるだけです。</p>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>データ削除</h2>
+    <p>トークンファイルを削除する、または各プラットフォームの設定画面から連携を解除すれば、本ツールからのアクセスは無効になります。</p>
+  </section>
+
+  <div class="contact-block">
+    <div class="dot"></div>
+    <p>問い合わせ: <a href="mailto:px84bnpn@gmail.com">px84bnpn@gmail.com</a></p>
+  </div>
+
+  <div class="page-nav">
+    <a href="terms.html">→ 利用規約を見る</a>
+  </div>
+</div>
+</body>
+</html>

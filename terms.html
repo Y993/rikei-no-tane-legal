@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用規約 — りけいのタネ 投稿ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F3EE;
+    --surface: #FDFCF9;
+    --ink: #1C1B18;
+    --ink-muted: #6B6860;
+    --accent: #1A6B5A;
+    --accent-light: #E8F4F1;
+    --rule: #D8D4CC;
+    --mono: 'Courier Prime', monospace;
+    --serif: 'Noto Serif JP', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-weight: 300;
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  header {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 48px;
+  }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 48px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── article list ── */
+  .article {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0 20px;
+    align-items: start;
+  }
+
+  .article:last-of-type { border-bottom: none; }
+
+  .article-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    padding-top: 4px;
+  }
+
+  .article-body h2 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  .article-body p {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.85;
+  }
+
+  /* ── contact ── */
+  .contact-block {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-block .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .contact-block p {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .contact-block a {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  .contact-block a:hover { text-decoration: underline; }
+
+  .page-nav {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-nav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid var(--rule);
+    transition: all 0.2s;
+  }
+
+  .page-nav a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="label">Legal Document</div>
+    <h1>利用規約</h1>
+    <p class="meta">りけいのタネ 投稿ツール&nbsp;&nbsp;·&nbsp;&nbsp;最終更新: 2026-06-13</p>
+  </header>
+
+  <div class="article">
+    <span class="article-num">第1条</span>
+    <div class="article-body">
+      <h2>目的</h2>
+      <p>本ツールは「りけいのタネ」運営者本人が、自作動画を自身のアカウントへ投稿するための個人用ソフトウェアです。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <span class="article-num">第2条</span>
+    <div class="article-body">
+      <h2>免責事項</h2>
+      <p>本ツールは現状有姿で提供され、明示・黙示を問わずいかなる保証もしません。本ツールの利用により生じた損害について、作者は責任を負いません。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <span class="article-num">第3条</span>
+    <div class="article-body">
+      <h2>プラットフォーム規約の遵守</h2>
+      <p>利用者は TikTok / YouTube 等の各プラットフォームの利用規約・API規約を遵守します。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <span class="article-num">第4条</span>
+    <div class="article-body">
+      <h2>使用範囲</h2>
+      <p>本ツールは利用者自身のアカウントへのアップロードにのみ使用します。</p>
+    </div>
+  </div>
+
+  <div class="contact-block">
+    <div class="dot"></div>
+    <p>連絡先: <a href="mailto:px84bnpn@gmail.com">px84bnpn@gmail.com</a></p>
+  </div>
+
+  <div class="page-nav">
+    <a href="privacy.html">← プライバシーポリシーを見る</a>
+  </div>
+</div>
+</body>
+</html>
